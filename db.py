@@ -1,7 +1,9 @@
 import os
+import json
 import psycopg2
 from psycopg2.extras import RealDictCursor
-
+from dotenv import load_dotenv
+load_dotenv()
 
 class PerevalDatabase:
     """Класс для взаимодействия с базой данных ФСТР."""
@@ -22,10 +24,7 @@ class PerevalDatabase:
             self.connection = None
 
     def add_pereval(self, pereval_data: dict):
-        """
-        Добавление новой записи о перевале.
-        Возвращает (id, None) при успехе или (None, error_message) при ошибке.
-        """
+        """Добавление новой записи о перевале"""
         if not self.connection:
             return None, "Нет подключения к базе данных"
 
@@ -39,8 +38,8 @@ class PerevalDatabase:
                     """,
                     (
                         pereval_data.get("add_time"),
-                        pereval_data,
-                        pereval_data.get("images", []),
+                        json.dumps(pereval_data, ensure_ascii=False),
+                        json.dumps(pereval_data.get("images", []), ensure_ascii=False)
                     ),
                 )
                 new_id = cursor.fetchone()["id"]

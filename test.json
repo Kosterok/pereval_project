@@ -1,0 +1,26 @@
+{
+  "beauty_title": "пер. ",
+  "title": "Тестовый",
+  "other_titles": "Тест",
+  "connect": "",
+  "add_time": "2025-11-01 13:18:13",
+  "user": {
+    "email": "test@test.ru",
+    "fam": "Иванов",
+    "name": "Иван",
+    "otc": "Иванович",
+    "phone": "+79999999999"
+  },
+  "coords": {
+    "latitude": "55.727739",
+    "longitude": "37.606945",
+    "height": "1000"
+  },
+  "level": {
+    "summer": "1А"
+  },
+  "images": [
+    {"data": "<картинка1>", "title": "картинка1"},
+    {"data": "<картинка2>", "title": "картинка2"}
+  ]
+}
